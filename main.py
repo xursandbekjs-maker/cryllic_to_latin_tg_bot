@@ -1,6 +1,12 @@
 import telebot
+import os
+from dotenv import load_dotenv
 from transliterate import to_cyrillic, to_latin
-bot = telebot.TeleBot("8970169583:AAFgCtDWp2e29dxM8RLjBILfS75LQKcUuVg", parse_mode=None) # You can set parse_mode by default. HTML or MARKDOWN
+
+load_dotenv()
+
+TOKEN=os.getenv("BOT_TOKEN")	
+bot = telebot.TeleBot(TOKEN, parse_mode=None) # You can set parse_mode by default. HTML or MARKDOWN
 
 @bot.message_handler(commands=['start', 'help'])
 def send_welcome(message):
